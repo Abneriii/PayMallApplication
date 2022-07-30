@@ -3,7 +3,7 @@ package com.ning.mall.controller;
 import com.github.pagehelper.PageInfo;
 import com.ning.mall.form.OrderCreateForm;
 import com.ning.mall.pojo.User;
-import com.ning.mall.service.IOrderService;
+import com.ning.mall.service.OrderService;
 import com.ning.mall.vo.OrderVo;
 import com.ning.mall.vo.ResponseVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import javax.validation.Valid;
 public class OrderController {
 
     @Autowired
-    private IOrderService orderService;
+    private OrderService orderService;
 
     @PostMapping("/orders")
     public ResponseVo<OrderVo> create(@Valid @RequestBody OrderCreateForm form,

@@ -1,11 +1,9 @@
 package com.ning.mall.service.impl;
 
-import com.ning.mall.dao.CategoryMapper;
 import com.ning.mall.dao.ProductMapper;
 import com.ning.mall.enums.ResponseEnum;
-import com.ning.mall.pojo.Category;
 import com.ning.mall.pojo.Product;
-import com.ning.mall.service.IProductService;
+import com.ning.mall.service.ProductService;
 import com.ning.mall.vo.ProductVo;
 import com.ning.mall.vo.ResponseVo;
 import org.springframework.beans.BeanUtils;
@@ -19,7 +17,7 @@ import java.util.Set;
 
 
 @Service
-public class ProductServiceImpl implements IProductService {
+public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private CategoryServiceImpl categoryService;

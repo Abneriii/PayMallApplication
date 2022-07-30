@@ -7,10 +7,12 @@ import com.ning.mall.vo.ResponseVo;
 import java.util.List;
 import java.util.Set;
 
-public interface ICategoryService {
+public interface CategoryService {
 
 
     ResponseVo<List<CategoryVo>> categories();
+
+    ResponseVo<List<CategoryVo>> categories2();
 
     Set<Integer> subCategories(Integer categoryRootId,Set<Integer> categorySubId);
 

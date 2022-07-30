@@ -7,7 +7,7 @@ import com.ning.mall.vo.ResponseVo;
 import java.util.List;
 import java.util.Set;
 
-public interface IProductService {
+public interface ProductService {
 
     ResponseVo<List<ProductVo>> products(Integer categoryId);
 

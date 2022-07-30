@@ -8,12 +8,13 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public interface IUserService {
+public interface UserService {
 
 
-    ResponseVo<User> register(User user);//mine在controller层会有一个
+    ResponseVo<User> register(User user);
 
     ResponseVo<User> login(String username,String password);
+
 
 
 }

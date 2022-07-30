@@ -3,25 +3,18 @@ package com.ning.mall.service.impl;
 import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.ning.mall.MallApplication;
 import com.ning.mall.MallApplicationTests;
 import com.ning.mall.enums.ResponseEnum;
 import com.ning.mall.form.CartAddForm;
-import com.ning.mall.service.ICartService;
-import com.ning.mall.service.IOrderService;
 import com.ning.mall.vo.CartVo;
 import com.ning.mall.vo.OrderVo;
 import com.ning.mall.vo.ResponseVo;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.Select;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import static org.junit.Assert.*;
 
 
 @Slf4j

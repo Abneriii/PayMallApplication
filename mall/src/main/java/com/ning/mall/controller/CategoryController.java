@@ -26,4 +26,12 @@ public class CategoryController {
 
     }
 
+    @GetMapping("/categories2")
+    private ResponseVo<List<CategoryVo>> categories2(){
+
+        return categoryService.categories2();
+
+
+    }
+
 }

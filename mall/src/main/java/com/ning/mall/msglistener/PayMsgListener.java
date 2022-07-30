@@ -2,7 +2,7 @@ package com.ning.mall.msglistener;
 
 import com.google.gson.Gson;
 import com.ning.mall.pojo.PayInfo;
-import com.ning.mall.service.IOrderService;
+import com.ning.mall.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class PayMsgListener {
 
     @Autowired
-    private IOrderService orderService;
+    private OrderService orderService;
 
     @RabbitHandler
     public void process(String msg) {

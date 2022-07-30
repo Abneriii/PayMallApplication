@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)//如果域为空，则不返回
-public class ResponseVo<T> {
+public class  ResponseVo<T> {
 
     Integer status;
 

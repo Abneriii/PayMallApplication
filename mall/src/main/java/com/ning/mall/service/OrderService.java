@@ -4,7 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.ning.mall.vo.OrderVo;
 import com.ning.mall.vo.ResponseVo;
 
-public interface IOrderService {
+public interface OrderService {
 
 
     ResponseVo<OrderVo> create(Integer uid, Integer shippingId);

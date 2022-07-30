@@ -9,7 +9,7 @@ import com.ning.mall.form.CartAddForm;
 import com.ning.mall.form.CartUpdateForm;
 import com.ning.mall.pojo.Cart;
 import com.ning.mall.pojo.Product;
-import com.ning.mall.service.ICartService;
+import com.ning.mall.service.CartService;
 import com.ning.mall.vo.CartProductVo;
 import com.ning.mall.vo.CartVo;
 import com.ning.mall.vo.ResponseVo;
@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class CartServiceImpl implements ICartService {
+public class CartServiceImpl implements CartService {
 
     private final static String CART_REDIS_KEY_TEMPLATE = "cart_%d";
     @Autowired

@@ -10,7 +10,7 @@ import com.ning.mall.vo.ResponseVo;
 
 import java.util.List;
 
-public interface ICartService {
+public interface CartService {
 
 
 

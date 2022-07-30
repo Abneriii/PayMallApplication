@@ -11,8 +11,8 @@ import com.ning.mall.enums.PaymentTypeEnum;
 import com.ning.mall.enums.ProductStatusEnum;
 import com.ning.mall.enums.ResponseEnum;
 import com.ning.mall.pojo.*;
-import com.ning.mall.service.ICartService;
-import com.ning.mall.service.IOrderService;
+import com.ning.mall.service.CartService;
+import com.ning.mall.service.OrderService;
 import com.ning.mall.vo.OrderItemVo;
 import com.ning.mall.vo.OrderVo;
 import com.ning.mall.vo.ResponseVo;
@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 
 
 @Service
-public class OrderServiceImpl implements IOrderService {
+public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private ShippingMapper shippingMapper;
@@ -42,7 +42,7 @@ public class OrderServiceImpl implements IOrderService {
     private OrderItemMapper orderItemMapper;
 
     @Autowired
-    private ICartService cartService;
+    private CartService cartService;
 
     //dai
     @Override

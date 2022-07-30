@@ -152,5 +152,11 @@
     where status = 1
   </select>
 
+  <select id="selectByParentId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+      from mall_category
+      where parent_id=#{parentId}
+  </select>
 
 </mapper>

@@ -8,7 +8,7 @@ import com.ning.mall.vo.ResponseVo;
 import java.util.Map;
 
 //收获地址
-public interface IShippingService {
+public interface ShippingService {
 
     ResponseVo<Map<String, Integer>> add(Integer uid, ShippingForm form);
 

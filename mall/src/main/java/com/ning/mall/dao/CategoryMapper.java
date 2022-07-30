@@ -22,5 +22,5 @@ public interface CategoryMapper {
 
     List<Category> selectAll();//YW----查出所有数据，这个接口如何写,----mybatis接口命名规则？
 
-
+    List<Category> selectByParentId(Integer parentId);
 }

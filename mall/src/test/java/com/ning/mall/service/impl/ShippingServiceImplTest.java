@@ -3,7 +3,7 @@ package com.ning.mall.service.impl;
 import com.ning.mall.MallApplicationTests;
 import com.ning.mall.enums.ResponseEnum;
 import com.ning.mall.form.ShippingForm;
-import com.ning.mall.service.IShippingService;
+import com.ning.mall.service.ShippingService;
 import com.ning.mall.vo.ResponseVo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
@@ -15,9 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
 
-import static org.junit.Assert.*;
-
-
 
 @Slf4j
 @Transactional
@@ -25,7 +22,7 @@ public class ShippingServiceImplTest extends MallApplicationTests {
 
 
     @Autowired
-    private IShippingService shippingService;
+    private ShippingService shippingService;
 
     private Integer uid = 1;
 

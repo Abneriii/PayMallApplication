@@ -6,7 +6,7 @@ import com.ning.mall.dao.ShippingMapper;
 import com.ning.mall.enums.ResponseEnum;
 import com.ning.mall.form.ShippingForm;
 import com.ning.mall.pojo.Shipping;
-import com.ning.mall.service.IShippingService;
+import com.ning.mall.service.ShippingService;
 import com.ning.mall.vo.ResponseVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class ShippingServiceImpl implements IShippingService {
+public class ShippingServiceImpl implements ShippingService {
 
     @Autowired
     private ShippingMapper shippingMapper;

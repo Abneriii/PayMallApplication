@@ -4,7 +4,7 @@ import com.ning.mall.dao.UserMapper;
 import com.ning.mall.enums.ResponseEnum;
 import com.ning.mall.enums.RoleEnum;
 import com.ning.mall.pojo.User;
-import com.ning.mall.service.IUserService;
+import com.ning.mall.service.UserService;
 import com.ning.mall.vo.ResponseVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.nio.charset.StandardCharsets;
 
 
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements UserService {
 
 
 
@@ -56,32 +56,21 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public ResponseVo<User> login(String username,String password){//mine为什么报错Could not autowire. No beans of 'String' type found.
-            User user=userMapper.selectByUsername(username);//mineYW如果用户名不存在这个方法返回什么---返回null---mybatis的知识？
+    public ResponseVo<User> login(String username,String password){
+            User user=userMapper.selectByUsername(username);
             if(user==null){
                 return ResponseVo.error(ResponseEnum.USERNAME_OR_PASSWORD_ERROR,ResponseEnum.USERNAME_OR_PASSWORD_ERROR.getDesc());
             }
 
-            //YW视频中比较大小用的是equalsIngoreCase()
-        /**
-         * if中的比较语句有误，dai排查，作为issue提交
-         * if(user.getPassword()!=DigestUtils.md5DigestAsHex(
-         *                 password.getBytes(StandardCharsets.UTF_8)
-         *             )){
-         *                 return ResponseVo.error(ResponseEnum.USERNAME_OR_PASSWORD_ERROR,ResponseEnum.USERNAME_OR_PASSWORD_ERROR.getDesc());
-         *             }
-         */
         if(!user.getPassword().equalsIgnoreCase(DigestUtils.md5DigestAsHex(
                 password.getBytes(StandardCharsets.UTF_8)
         ))){
                 return ResponseVo.error(ResponseEnum.USERNAME_OR_PASSWORD_ERROR,ResponseEnum.USERNAME_OR_PASSWORD_ERROR.getDesc());
             }
-
-            user.setPassword("");//将password字段置空，ResponseVo类的注解会不返回这个空值
+           //将password字段置空，ResponseVo类的注解会不返回这个空值
+            user.setPassword("");
             return ResponseVo.success(ResponseEnum.SUCCESS.getCode(),user);
-
     }
-
 
 
 
