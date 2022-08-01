@@ -14,6 +14,7 @@
     <bytecodeTargetLevel>
       <module name="mall" target="1.8" />
       <module name="pay" target="1.8" />
+      <module name="PayMallApplication" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
