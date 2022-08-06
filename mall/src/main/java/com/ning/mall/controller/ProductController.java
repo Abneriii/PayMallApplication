@@ -10,6 +10,7 @@ import com.ning.mall.vo.ResponseVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,15 +26,15 @@ public class ProductController {
 
 
     @GetMapping("/products")
-    public ResponseVo<List<ProductVo>> products(@RequestParam(required = false)Integer categoryId){//mine前端接口可传参也可以不传参，那形参怎么设置
-
+    public ResponseVo<List<ProductVo>> products(@RequestParam(required = false) Integer categoryId){
         return productService.products(categoryId);
 
     }
 
 
-    @GetMapping("/products/")//YW--前端接口为/products/{productId}，不知道该如何写url
-    public ResponseVo<Product> product(@RequestParam Integer productId){//YW----如何写接口方法
+
+    @GetMapping("/products/{productId}")
+    public ResponseVo<Product> product(@PathVariable  Integer productId){
         return productService.product(productId);
     }
 

@@ -90,6 +90,19 @@ public class CartServiceImpl implements CartService {
 
     }
 
+    @Override
+    public ResponseVo<CartVo> list2(Integer uid) {
+//        //
+//        HashOperations<String, String, String> opsForHash=redisTemplate.opsForHash();
+//        //返回值是啥，get方法第二个参数是啥
+//        opsForHash.get("cart_"+uid,);
+//
+
+
+
+        return null;
+    }
+
 
     //cartAddForm中有产品Id
     @Override
@@ -134,6 +147,13 @@ public class CartServiceImpl implements CartService {
                 gson.toJson(cart));
 
         return list(uid);
+    }
+
+
+    @Override
+    public ResponseVo<CartVo> addOneProduct2(Integer uid, CartAddForm cartAddForm){
+
+        return null;
     }
 
 
@@ -212,7 +232,7 @@ public class CartServiceImpl implements CartService {
     }
 
 
-    //daiYW----------lambda+stream
+
     @Override
     public ResponseVo<Integer> sum(Integer uid) {
         Integer sum = listForCart(uid).stream()

@@ -28,6 +28,12 @@ public class CartController {
         return cartService.list(user.getId());
     }
 
+    @GetMapping("/carts2")
+    public ResponseVo<CartVo> list2(HttpSession httpSession)
+    {
+        User user = (User) httpSession.getAttribute("currentUser");
+        return cartService.list2(user.getId());
+    }
 
 
     @PostMapping("/carts")
@@ -35,6 +41,12 @@ public class CartController {
 
         User user = (User) httpSession.getAttribute("currentUser");
         return cartService.addOneProduct(user.getId(),cartAddForm);
+    }
+
+    @PostMapping("/carts2")
+    public ResponseVo<CartVo> addOneProduct2(@Valid @RequestBody CartAddForm cartAddForm, HttpSession httpSession){
+        User user = (User) httpSession.getAttribute("currentUser");
+        return cartService.addOneProduct2(user.getId(),cartAddForm);
     }
 
 
@@ -77,11 +89,6 @@ public class CartController {
         User user = (User) httpSession.getAttribute("currentUser");
         return cartService.sum(user.getId());
     }
-
-
-
-
-
 
 
 }

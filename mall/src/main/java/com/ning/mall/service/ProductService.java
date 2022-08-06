@@ -11,6 +11,11 @@ public interface ProductService {
 
     ResponseVo<List<ProductVo>> products(Integer categoryId);
 
+
+
     ResponseVo<Product> product(Integer productId);
+
+
+
 
 }

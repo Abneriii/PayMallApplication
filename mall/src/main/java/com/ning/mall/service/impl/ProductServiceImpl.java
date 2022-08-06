@@ -38,12 +38,13 @@ public class ProductServiceImpl implements ProductService {
             productVoList.add(productVo);
         }
         return new ResponseVo<>(ResponseEnum.SUCCESS.getCode(),productVoList);
-
     }
+
 
     @Override
     public ResponseVo<Product> product(Integer productId) {
         return  new ResponseVo<>(ResponseEnum.SUCCESS.getCode(),productMapper.selectByPrimaryKey(productId));
     }
+
 
 }
