@@ -17,7 +17,7 @@ public class BestPayConfig {
         //支付商户资料
         wxPayConfig.setMchId("1614433647");
         wxPayConfig.setMchKey("Aa111111111122222222223333333333");
-        wxPayConfig.setNotifyUrl("http://abner66.natapp1.cc/pay/notify");//商户接受微信平台发来支付成功的异步通知的地址
+        wxPayConfig.setNotifyUrl("http://abner666.natapp1.cc/pay/notify");//商户接受微信平台发来支付成功的异步通知的地址
 
 
         BestPayServiceImpl bestPayService = new BestPayServiceImpl();

@@ -43,11 +43,6 @@ public class CartController {
         return cartService.addOneProduct(user.getId(),cartAddForm);
     }
 
-    @PostMapping("/carts2")
-    public ResponseVo<CartVo> addOneProduct2(@Valid @RequestBody CartAddForm cartAddForm, HttpSession httpSession){
-        User user = (User) httpSession.getAttribute("currentUser");
-        return cartService.addOneProduct2(user.getId(),cartAddForm);
-    }
 
 
     @PutMapping("/carts/{productId}")

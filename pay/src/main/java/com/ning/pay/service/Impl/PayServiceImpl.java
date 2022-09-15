@@ -55,7 +55,6 @@ public class PayServiceImpl implements com.ning.pay.service.IPayService {
         payRequest.setOrderAmount(amount.doubleValue());
 
         PayResponse response = bestPayService.pay(payRequest);
-
         return response;
     }
 
@@ -92,7 +91,6 @@ public class PayServiceImpl implements com.ning.pay.service.IPayService {
             payInfoMapper.updateByPrimaryKeySelective(payInfo);
         }
 
-        //TODO pay发送MQ消息，mall接受MQ消息
         amqpTemplate.convertAndSend(QUEUE_PAY_NOTIFY, new Gson().toJson(payInfo));
 
         if (payResponse.getPayPlatformEnum() == BestPayPlatformEnum.WX) {
@@ -104,8 +102,13 @@ public class PayServiceImpl implements com.ning.pay.service.IPayService {
         } else if (payResponse.getPayPlatformEnum() == BestPayPlatformEnum.ALIPAY) {
             return "success";
         }
-
         throw new RuntimeException("异步通知中错误的支付平台");
+    }
+
+
+    public String test(){
+        amqpTemplate.convertAndSend(QUEUE_PAY_NOTIFY,"nihao");
+        return "0k";
     }
 
 }

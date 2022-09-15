@@ -44,7 +44,24 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private CartService cartService;
 
-    //dai
+    /**
+     *
+     * @param uid
+     * @param shippingId
+     * @return
+     *
+     *
+     * mall_order_item mall_order
+     *
+     * "创建订单"接口的算法-------2022.9.6-----Algorithm----待完善-----------------------
+     * 去redis中查到uid的购物车的商品简述信息
+     * 去数据库中根据这些信息查到商品的详细信息
+     * 清除购物车
+     * 修改商品数据库表的余量信息
+     * 创建订单，向数据库表中插入数据mall_order_item和mall_order
+     * 疑问点】数据库中商品数量的减少是在创建订单后还是在支付订单后？----应该是在商品支付后。
+     *-------------------------------------------------------------------------------
+     */
     @Override
     public ResponseVo<OrderVo> create(Integer uid, Integer shippingId) {
         Shipping shipping = shippingMapper.selectByUidAndShippingId(uid, shippingId);
@@ -130,6 +147,16 @@ public class OrderServiceImpl implements OrderService {
 
     }
 
+    /**
+     *
+     * @param uid
+     * @param pageNum
+     * @param pageSize
+     * @return
+     *
+     *
+     *
+     */
     @Override
     public ResponseVo<PageInfo> list(Integer uid, Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);

@@ -16,6 +16,6 @@ public interface IPayService {
 
     String asyncNotify(String notifyData);
 
-
+    String test();
 
 }

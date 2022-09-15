@@ -32,7 +32,6 @@ public class ProductController {
     }
 
 
-
     @GetMapping("/products/{productId}")
     public ResponseVo<Product> product(@PathVariable  Integer productId){
         return productService.product(productId);

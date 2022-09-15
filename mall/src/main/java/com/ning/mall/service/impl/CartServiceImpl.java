@@ -150,11 +150,7 @@ public class CartServiceImpl implements CartService {
     }
 
 
-    @Override
-    public ResponseVo<CartVo> addOneProduct2(Integer uid, CartAddForm cartAddForm){
 
-        return null;
-    }
 
 
     @Override

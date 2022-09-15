@@ -23,7 +23,14 @@ public class ShippingServiceImpl implements ShippingService {
     private ShippingMapper shippingMapper;
 
 
-
+    /**
+     *
+     * @param uid
+     * @param form
+     * @return
+     *
+     *
+     */
     @Override
     public ResponseVo<Map<String, Integer>> add(Integer uid, ShippingForm form) {
         Shipping shipping = new Shipping();
@@ -33,7 +40,6 @@ public class ShippingServiceImpl implements ShippingService {
         if (row == 0) {
             return ResponseVo.error(ResponseEnum.ERROR,ResponseEnum.ERROR.getDesc());
         }
-        //YW---传shipping对象过去后shipping自己的域Id的自增，在这里能查到？
         Map<String, Integer> map = new HashMap<>();
         map.put("shippingId", shipping.getId());
         return ResponseVo.success(ResponseEnum.SUCCESS.getCode(),map);
@@ -42,20 +48,6 @@ public class ShippingServiceImpl implements ShippingService {
 
     @Override
     public ResponseVo delete(Integer uid, Integer shippingId) {
-        //先检查，这个shippingId是否与uid对应。
-        //dai----mine有问题，dai排查。
-//        Shipping shipping=shippingMapper.selectByPrimaryKey(shippingId);
-//        if(!shipping.getUserId().equals(uid)){
-//            return ResponseVo.error(ResponseEnum.SHIPPING_NOT_EXIST,ResponseEnum.SHIPPING_NOT_EXIST.getDesc());
-//        }
-//
-//        int row=shippingMapper.deleteByPrimaryKey(uid);
-//        if(row==0){
-//            return ResponseVo.error(ResponseEnum.DELETE_SHIPPING_FAIL,ResponseEnum.DELETE_SHIPPING_FAIL.getDesc());
-//        }
-//        return ResponseVo.success(ResponseEnum.SUCCESS.getCode(),ResponseEnum.SUCCESS.getDesc());
-//
-//
         int row = shippingMapper.deleteByIdAndUid(uid, shippingId);
         if (row == 0) {
             return ResponseVo.error(ResponseEnum.DELETE_SHIPPING_FAIL,ResponseEnum.DELETE_SHIPPING_FAIL.getDesc());
@@ -67,7 +59,6 @@ public class ShippingServiceImpl implements ShippingService {
 
     @Override
     public ResponseVo update(Integer uid, Integer shippingId,ShippingForm form) {
-        //mineDai---我的方法dai---判断shippingId是否存在，判断uid和shippingId是否匹配，调用insertselective()给shippingId对应的行重新赋值。
         Shipping shipping = new Shipping();
         BeanUtils.copyProperties(form, shipping);
         shipping.setUserId(uid);
@@ -81,7 +72,7 @@ public class ShippingServiceImpl implements ShippingService {
 
     }
 
-    //dai
+
     @Override
     public ResponseVo<PageInfo> list(Integer uid, Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);

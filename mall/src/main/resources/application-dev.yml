@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ning
+    url: jdbc:mysql://127.0.0.1:3306/mall?serverTimezone=GMT&characterEncoding=utf-8&useSSL=false
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  rabbitmq:
+    addresses: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+logging:
+  pattern:
+    console: "[%thread] %-5level %logger{36} - %msg%n"
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #控制台打印生成的SQL语句
+  mapper-locations: classpath:mappers/*.xml  #配置Mapper XML文件位置
+
+server:
+  servlet:
+    session:
+      timeout: 120 #session过期时间
+  port: 8081

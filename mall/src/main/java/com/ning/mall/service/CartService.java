@@ -23,7 +23,7 @@ public interface CartService {
     //给一个商品数量加1,参数必填
      ResponseVo<CartVo> addOneProduct(Integer uid,CartAddForm cartAddForm);
 
-     ResponseVo<CartVo> addOneProduct2(Integer uid, CartAddForm cartAddForm);
+
 
     //更新购物车。参数非必填(diaYW非必填可为空，or直接可不传)。
      ResponseVo<CartVo> update(Integer uid,Integer productId,CartUpdateForm cartUpdateForm);
